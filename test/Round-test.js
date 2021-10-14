@@ -22,15 +22,15 @@ describe('Round', function() {
     round = new Round(deck);
   });
 
-  it.skip('should be a function', function() {
+  it('should be a function', function() {
     expect(Round).to.be.a('function');
   });
 
-  it.skip('should be an instance of Round', function() {
+  it('should be an instance of Round', function() {
     expect(round).to.be.an.instanceof(Round);
   });
 
-  it.skip('should store a deck of cards', function() {
+  it('should store a deck of cards', function() {
     expect(round.deck).to.deep.equal([
       {id: 1, question: 'What allows you to define a set of related information using key-value pairs?', answers: ['object', 'array', 'function'], correctAnswer: 'object'},
       {id: 2, question: 'What is a comma-separated list of related values?', answers: ['array', 'object', 'function'], correctAnswer: 'array'},
@@ -38,39 +38,39 @@ describe('Round', function() {
     ]);
   });
 
-  it.skip('should start with 0 turns', function() {
+  it('should start with 0 turns', function() {
     expect(round.turns).to.equal(0);
   });
 
-  it.skip('should start with no incorrect guesses', function() {
+  it('should start with no incorrect guesses', function() {
     expect(round.incorrectGuesses).to.deep.equal([]);
   });
 
-  it.skip('should return the current card being played', function() {
+  it('should return the current card being played', function() {
     expect(round.returnCurrentCard()).to.deep.equal({id: 1, question: 'What allows you to define a set of related information using key-value pairs?', answers: ['object', 'array', 'function'], correctAnswer: 'object'});
   });
 
-  it.skip('should be able to take a turn by guessing', function() {
+  it('should be able to take a turn by guessing', function() {
     expect(round.turns).to.equal(0);
     round.takeTurn('object');
     expect(round.turns).to.equal(1);
   });
 
-  it.skip('should move on to the next card after a guess is made', function() {
+  it('should move on to the next card after a guess is made', function() {
     expect(round.returnCurrentCard()).to.deep.equal({id: 1, question: 'What allows you to define a set of related information using key-value pairs?', answers: ['object', 'array', 'function'], correctAnswer: 'object'});
     round.takeTurn('array');
     expect(round.returnCurrentCard()).to.deep.equal({id: 2, question: 'What is a comma-separated list of related values?', answers: ['array', 'object', 'function'], correctAnswer: 'array'});
   });
 
-  it.skip('should return \'correct!\' for a correct guess', function() {
+  it('should return \'correct!\' for a correct guess', function() {
     expect(round.takeTurn('object')).to.equal('correct!');
   });
 
-  it.skip('should return \'incorrect!\' for an incorrect guess', function() {
+  it('should return \'incorrect!\' for an incorrect guess', function() {
     expect(round.takeTurn('array')).to.equal('incorrect!');
   });
 
-  it.skip('should store incorrect guesses', function() {
+  it('should store incorrect guesses', function() {
     expect(round.incorrectGuesses).to.deep.equal([]);
     round.takeTurn('array');
     expect(round.incorrectGuesses).to.deep.equal([1]);
@@ -78,7 +78,7 @@ describe('Round', function() {
     expect(round.incorrectGuesses).to.deep.equal([1, 2]);
   });
 
-  it.skip('should be able to calculate the percentage of questions answered correctly', function() {
+  it('should be able to calculate the percentage of questions answered correctly', function() {
     round.takeTurn('object');
     round.takeTurn('object');
     expect(round.calculatePercentCorrect()).to.equal(50);
@@ -86,7 +86,7 @@ describe('Round', function() {
     expect(round.calculatePercentCorrect()).to.equal(66);
   });
 
-  it.skip('should print a feedback message at the end of the round', function () {
+  it('should print a feedback message at the end of the round', function () {
     round.takeTurn('object');
     round.takeTurn('array');
     round.takeTurn('mutator method');
