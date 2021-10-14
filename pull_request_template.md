@@ -17,19 +17,23 @@ Include a summary of the change and which issue is fixed or feature was added
 - [ ] Breaking change (fix or feature that would cause existing functionality to not work as expected)
 - [ ] This change requires a documentation update
 
-### Iteration 1 Requirements
+### Iteration 2 Requirements
 
-**_Cards_**
-- [ ] A Card represents a single flashcard
-- [ ] Each card has an id, a question, possible answers, and a correct answer
+**_Deck_**
+- [ ] Deck class initialized with an array of Card objects and an accompanying test file
+- [ ] Should know how many Cards are in the Deck
 
-**_Turns_**
-Your Turn class should meet the following requirements -
-- [ ] Instatiated with two arguments - a string (that represents a user's guess to the question), and a Card object for the current card in play
-- [ ] returnGuess method that returns the guess
-- [ ] returnCard method that returns the Card
-- [ ] evaluateGuess method that returns a boolean indicating if the user's guess matches the correct answer on the card
-- [ ] giveFeedback method that returns either "incorrect!" or "correct!" based on whether the guess is correct or not
+**_Round_**
+Your Round class should meet the following requirements -
+- [ ] returnCurrentCard: method that returns the current card being played
+- [ ] takeTurn: method that updates turns count, evaluates guesses, gives feedback, and stores ids of incorrect guesses
+  - [ ] When a guess is made, a new Turn instance is created.
+  - [ ] The turns count is updated, regardless of whether the guess is correct or incorrect
+  - [ ] The next card becomes current card
+  - [ ] Guess is evaluated/recorded. Incorrect guesses will be stored (via the id) in an array of incorrectGuesses
+  - [ ] Feedback is returned regarding whether the guess is incorrect or correct
+- [ ] calculatePercentCorrect: method that calculates and returns the percentage of correct guesses
+- [ ] endRound: method that prints the following to the console: ‘** Round over! ** You answered <>% of the questions correctly!’
 
 ### Checklist:
 
