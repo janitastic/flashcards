@@ -31,6 +31,6 @@ class Round {
     const percentCorrect = this.calculatePercentCorrect();
     return `** Round over! ** You answered ${percentCorrect}% of the questions correctly!`;
   }
-};
+}
 
 module.exports = Round;
